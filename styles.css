@@ -1,0 +1,218 @@
+/* The Chocolate Room Cafe & Bistro - Ultra-Modern Custom Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,500;1,600;1,700&display=swap');
+
+:root {
+  --color-choco-dark: #2B1700;
+  --color-choco-bean: #1E1000;
+  --color-caramel: #D97706;
+  --color-caramel-light: #F59E0B;
+  --color-cream: #FAF7F2;
+  --color-cream-card: #FFFFFF;
+  --color-muted: #6B5E55;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+  background-color: var(--color-cream);
+  color: var(--color-choco-dark);
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+  background-color: #FAF7F2;
+}
+
+.font-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF7F2;
+}
+::-webkit-scrollbar-thumb {
+  background: #C4A482;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D97706;
+}
+
+/* Glassmorphism 2.0 Classes */
+.glass-header {
+  background: rgba(250, 247, 242, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(43, 23, 0, 0.08);
+}
+
+.glass-badge {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.glass-dark-badge {
+  background: rgba(43, 23, 0, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(217, 119, 6, 0.25);
+}
+
+/* Luxury Shadows */
+.shadow-warm-sm {
+  box-shadow: 0 4px 15px -2px rgba(43, 23, 0, 0.05);
+}
+
+.shadow-warm-md {
+  box-shadow: 0 10px 30px -4px rgba(43, 23, 0, 0.08), 0 4px 10px -2px rgba(43, 23, 0, 0.04);
+}
+
+.shadow-warm-xl {
+  box-shadow: 0 25px 45px -8px rgba(43, 23, 0, 0.12), 0 10px 20px -5px rgba(43, 23, 0, 0.05);
+}
+
+.shadow-caramel-glow {
+  box-shadow: 0 10px 28px -4px rgba(217, 119, 6, 0.38);
+}
+
+.shadow-caramel-soft {
+  box-shadow: 0 8px 20px -3px rgba(217, 119, 6, 0.2);
+}
+
+/* Indian Dietary Badges (FSSAI Specification) */
+.badge-veg {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 17px;
+  height: 17px;
+  border: 1.5px solid #16a34a;
+  border-radius: 3px;
+  background-color: transparent;
+  flex-shrink: 0;
+}
+.badge-veg-circle {
+  width: 7.5px;
+  height: 7.5px;
+  border-radius: 50%;
+  background-color: #16a34a;
+}
+
+.badge-nonveg {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 17px;
+  height: 17px;
+  border: 1.5px solid #b91c1c;
+  border-radius: 3px;
+  background-color: transparent;
+  flex-shrink: 0;
+}
+.badge-nonveg-triangle {
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 7.5px solid #b91c1c;
+}
+
+/* Tab Filter Modern Styling */
+.menu-tab-btn {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.menu-tab-btn.active {
+  background-color: #2B1700;
+  color: #FAF7F2;
+  box-shadow: 0 8px 20px -3px rgba(43, 23, 0, 0.3);
+}
+
+.menu-item-card {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease, border-color 0.3s ease;
+}
+
+.menu-item-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 22px 40px -10px rgba(43, 23, 0, 0.14), 0 8px 16px -4px rgba(43, 23, 0, 0.06);
+  border-color: rgba(217, 119, 6, 0.25);
+}
+
+/* Shimmer Button Effect */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  transform: translateX(-100%);
+  animation: shimmer 4s infinite;
+}
+
+/* Floating Animation */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float-slow {
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.08); }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 6s ease-in-out infinite;
+}
+
+/* Lightbox Modal Animation */
+#gallery-modal {
+  transition: opacity 0.25s ease;
+}
+#gallery-modal.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+#gallery-modal:not(.hidden) {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Gallery image zoom */
+.gallery-img-container img {
+  transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.gallery-img-container:hover img {
+  transform: scale(1.08);
+}
+
+/* Floating WhatsApp FAB */
+.floating-order-fab {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+.floating-order-fab:hover {
+  transform: translateY(-4px) scale(1.04);
+}

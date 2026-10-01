@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Chocolate Room Cafe & Bistro | MVP Colony, Visakhapatnam</title>
+  <meta name="description" content="Indulge in artisanal Belgian hot chocolates, decadent freak shakes, and Italian bistro savories at The Chocolate Room in MVP Colony, Visakhapatnam.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/the-chocolate-room-logo.png">
+
+  <!-- Tailwind CSS CDN with custom config -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            choco: {
+              DEFAULT: '#2B1700',
+              dark: '#1E1000',
+              light: '#422402',
+              soft: '#543007'
+            },
+            caramel: {
+              DEFAULT: '#D97706',
+              hover: '#B45309',
+              light: '#F59E0B',
+              soft: '#FEF3C7'
+            },
+            cream: {
+              DEFAULT: '#FAF7F2',
+              card: '#FFFFFF',
+              muted: '#F5F0E8'
+            },
+            bistro: {
+              muted: '#6B5E55',
+              dark: '#1E1000'
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#FAF7F2] text-[#2B1700] antialiased selection:bg-[#D97706] selection:text-white relative">
+
+  <!-- Ambient Background Glow Spheres -->
+  <div class="fixed top-0 left-1/4 w-[500px] h-[500px] bg-amber-400/10 rounded-full blur-[120px] pointer-events-none -z-10 animate-pulse-glow"></div>
+  <div class="fixed bottom-1/4 right-10 w-[600px] h-[600px] bg-[#2B1700]/5 rounded-full blur-[140px] pointer-events-none -z-10 animate-pulse-glow" style="animation-delay: 3s;"></div>
+
+  <!-- ================= 1. HEADER (Sticky Glassmorphic Bar) ================= -->
+  <header class="glass-header fixed top-0 inset-x-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Brand Logo / Wordmark with Official Logo -->
+        <a href="#hero" class="group flex items-center space-x-3.5">
+          <div class="relative">
+            <img 
+              src="images/the-chocolate-room-logo.png" 
+              alt="The Chocolate Room Cafe & Bistro Logo" 
+              class="w-12 h-12 rounded-full object-cover shadow-md border-2 border-white ring-1 ring-[#2B1700]/10 group-hover:scale-105 group-hover:ring-[#D97706]/40 transition-all duration-300"
+            >
+            <span class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-emerald-500 border-2 border-white rounded-full"></span>
+          </div>
+          <div>
+            <span class="font-serif text-xl sm:text-2xl font-bold tracking-tight text-[#2B1700] block leading-none">
+              The Chocolate Room
+            </span>
+            <span class="text-[11px] uppercase tracking-widest text-[#D97706] font-semibold block mt-1.5">
+              Cafe & Bistro · Vizag
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Anchors -->
+        <nav class="hidden md:flex items-center space-x-2 text-sm font-medium">
+          <a href="#about" class="desktop-nav-link text-[#2B1700]/80 hover:text-[#D97706] hover:bg-[#2B1700]/5 px-4 py-2 rounded-full transition-all">About</a>
+          <a href="#menu" class="desktop-nav-link text-[#2B1700]/80 hover:text-[#D97706] hover:bg-[#2B1700]/5 px-4 py-2 rounded-full transition-all">Menu</a>
+          <a href="#gallery" class="desktop-nav-link text-[#2B1700]/80 hover:text-[#D97706] hover:bg-[#2B1700]/5 px-4 py-2 rounded-full transition-all">Gallery</a>
+          <a href="#visit" class="desktop-nav-link text-[#2B1700]/80 hover:text-[#D97706] hover:bg-[#2B1700]/5 px-4 py-2 rounded-full transition-all">Visit</a>
+        </nav>
+
+        <!-- Primary CTA: WhatsApp -->
+        <div class="hidden sm:flex items-center space-x-4">
+          <a 
+            href="https://wa.me/918374869966?text=Hi%2C%20I'd%20like%20to%20place%20an%20order%20from%20The%20Chocolate%20Room!" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="btn-shimmer inline-flex items-center gap-2.5 bg-gradient-to-r from-[#D97706] to-[#B45309] hover:from-[#B45309] hover:to-[#92400E] text-white px-6 py-2.5 rounded-full text-sm font-semibold shadow-caramel-glow hover:shadow-xl transform active:scale-95 transition-all duration-200"
+          >
+            <i data-lucide="message-circle" class="w-4 h-4 fill-white text-white"></i>
+            <span>Order on WhatsApp</span>
+          </a>
+        </div>
+
+        <!-- Mobile Hamburger Button -->
+        <div class="flex sm:hidden">
+          <button 
+            id="mobile-menu-btn" 
+            type="button" 
+            aria-expanded="false" 
+            aria-label="Toggle Navigation Menu"
+            class="p-2.5 rounded-xl text-[#2B1700] hover:bg-[#2B1700]/10 focus:outline-none focus:ring-2 focus:ring-[#D97706] transition-colors"
+          >
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Collapsible Menu -->
+    <div id="mobile-menu" class="hidden sm:hidden border-t border-[#2B1700]/10 bg-[#FAF7F2]/98 backdrop-blur-2xl px-5 pt-4 pb-7 space-y-3 shadow-warm-xl">
+      <a href="#about" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-medium text-[#2B1700] hover:bg-[#2B1700]/5 hover:text-[#D97706]">About Us</a>
+      <a href="#menu" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-medium text-[#2B1700] hover:bg-[#2B1700]/5 hover:text-[#D97706]">Our Menu</a>
+      <a href="#gallery" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-medium text-[#2B1700] hover:bg-[#2B1700]/5 hover:text-[#D97706]">Photo Gallery</a>
+      <a href="#visit" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-medium text-[#2B1700] hover:bg-[#2B1700]/5 hover:text-[#D97706]">Visit & Directions</a>
+      <div class="pt-3">
+        <a 
+          href="https://wa.me/918374869966?text=Hi%2C%20I'd%20like%20to%20place%20an%20order%20from%20The%20Chocolate%20Room!" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="btn-shimmer flex items-center justify-center gap-2.5 w-full bg-gradient-to-r from-[#D97706] to-[#B45309] text-white px-5 py-3.5 rounded-xl font-semibold shadow-caramel-glow"
+        >
+          <i data-lucide="message-circle" class="w-4 h-4 fill-white text-white"></i>
+          <span>Order on WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ================= 2. HERO SECTION ================= -->
+  <section id="hero" class="relative pt-36 pb-24 md:pt-44 md:pb-32 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-12 items-center">
+        
+        <!-- Left Column: Content & CTAs -->
+        <div class="lg:col-span-7 space-y-6 text-left">
+          
+          <!-- Rating Badge & Live Status -->
+          <div class="flex flex-wrap items-center gap-3">
+            <div class="inline-flex items-center gap-2.5 bg-white/90 border border-amber-500/30 px-4 py-1.5 rounded-full shadow-warm-sm backdrop-blur-md">
+              <div class="flex items-center text-amber-500">
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+              </div>
+              <span class="text-xs sm:text-sm font-bold text-[#2B1700]">
+                ★ 4.7 Rated on Google
+              </span>
+              <span class="text-xs text-[#6B5E55] border-l border-stone-200 pl-2">
+                1,000+ Reviews
+              </span>
+            </div>
+
+            <div class="inline-flex items-center gap-1.5 bg-emerald-50/90 border border-emerald-300/60 px-3 py-1 rounded-full text-xs font-semibold text-emerald-800 backdrop-blur-sm">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+              <span>Open Daily in MVP Colony</span>
+            </div>
+          </div>
+
+          <!-- Main Headline -->
+          <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#2B1700] tracking-tight leading-[1.12]">
+            Your Ultimate <span class="italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-[#D97706] via-[#B45309] to-[#92400E]">Cocoa & Savory</span> Bistro Retreat in MVP Colony
+          </h1>
+
+          <!-- Subtext -->
+          <p class="text-base sm:text-lg text-[#6B5E55] max-w-2xl leading-relaxed font-normal">
+            Indulge in handcrafted Belgian hot chocolates, decadent freak shakes, and artisan Italian savory bites in the heart of Vizag.
+          </p>
+
+          <!-- Dual CTAs -->
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-3">
+            <a 
+              href="#menu" 
+              class="btn-shimmer inline-flex items-center justify-center gap-2.5 bg-[#2B1700] hover:bg-[#422402] text-[#FAF7F2] px-8 py-4 rounded-2xl font-semibold text-base shadow-warm-xl hover:shadow-2xl transition-all duration-300 group"
+            >
+              <span>View Menu</span>
+              <i data-lucide="arrow-down" class="w-4 h-4 text-[#D97706] group-hover:translate-y-1 transition-transform"></i>
+            </a>
+
+            <a 
+              href="https://maps.google.com/?q=The+Chocolate+Room+Sector+1+MVP+Colony+Visakhapatnam+530017" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="inline-flex items-center justify-center gap-2.5 bg-white/90 hover:bg-white text-[#2B1700] border border-[#2B1700]/15 hover:border-[#D97706] px-7 py-4 rounded-2xl font-semibold text-base shadow-warm-sm hover:shadow-warm-md backdrop-blur-sm transition-all duration-300 group"
+            >
+              <i data-lucide="map-pin" class="w-4 h-4 text-[#D97706] group-hover:scale-110 transition-transform"></i>
+              <span>Get Directions</span>
+            </a>
+          </div>
+
+          <!-- Feature Highlights / Micro-tags -->
+          <div class="pt-6 grid grid-cols-3 gap-3 border-t border-[#2B1700]/10 max-w-lg">
+            <div class="flex items-center gap-2.5">
+              <div class="w-7 h-7 rounded-lg bg-amber-50 flex items-center justify-center text-[#D97706]">
+                <i data-lucide="sparkles" class="w-4 h-4"></i>
+              </div>
+              <span class="text-xs font-semibold text-[#6B5E55]">Belgian Couverture</span>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <div class="w-7 h-7 rounded-lg bg-amber-50 flex items-center justify-center text-[#D97706]">
+                <i data-lucide="flame" class="w-4 h-4"></i>
+              </div>
+              <span class="text-xs font-semibold text-[#6B5E55]">Freshly Baked Daily</span>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <div class="w-7 h-7 rounded-lg bg-amber-50 flex items-center justify-center text-[#D97706]">
+                <i data-lucide="wifi" class="w-4 h-4"></i>
+              </div>
+              <span class="text-xs font-semibold text-[#6B5E55]">Cozy AC Booths</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Visual Showcase -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            
+            <!-- Warm Ambient Glow Behind Showcase -->
+            <div class="absolute -inset-4 bg-gradient-to-tr from-[#D97706]/30 via-amber-200/20 to-[#2B1700]/30 rounded-[3rem] blur-2xl -z-10 animate-pulse-glow"></div>
+
+            <!-- Main Rounded Showcase Image -->
+            <div class="overflow-hidden rounded-[2.5rem] border-4 border-white shadow-warm-xl relative bg-stone-100 aspect-[4/5] sm:aspect-square lg:aspect-[4/5] group">
+              <img 
+                src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=80" 
+                alt="The Chocolate Room Visakhapatnam warm ambient bistro seating with desserts and cocoa" 
+                class="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700"
+                fetchpriority="high"
+              >
+              <div class="absolute inset-0 bg-gradient-to-t from-[#2B1700]/80 via-[#2B1700]/20 to-transparent"></div>
+              
+              <!-- Bottom caption overlay -->
+              <div class="absolute bottom-7 left-7 right-7 text-white">
+                <span class="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] uppercase tracking-wider text-amber-300 font-bold mb-2">
+                  MVP Colony Sanctuary
+                </span>
+                <p class="font-serif text-2xl font-bold leading-tight drop-shadow-sm">
+                  Warm Ambience & Artisanal Treats
+                </p>
+              </div>
+            </div>
+
+            <!-- Floating Top-Right Mini Badge -->
+            <div class="absolute -top-4 -right-4 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-2xl shadow-warm-xl border border-white flex items-center gap-2 animate-float-slow">
+              <div class="w-8 h-8 rounded-full bg-amber-50 flex items-center justify-center text-[#D97706]">
+                <i data-lucide="award" class="w-4 h-4"></i>
+              </div>
+              <div class="text-left">
+                <p class="text-[10px] uppercase font-bold text-[#6B5E55]">100% Authentic</p>
+                <p class="text-xs font-bold text-[#2B1700]">Pure Belgian Cocoa</p>
+              </div>
+            </div>
+
+            <!-- Floating Bottom Badge: Signature Belgian Cocoa -->
+            <div class="absolute -bottom-6 -left-4 sm:-bottom-8 sm:left-4 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-warm-xl border border-white flex items-center gap-3.5 max-w-[270px] animate-float-slow" style="animation-delay: 2s;">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-[#2B1700] to-[#543007] flex items-center justify-center text-amber-400 shrink-0 shadow-md">
+                <i data-lucide="coffee" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <p class="text-[10px] text-[#6B5E55] uppercase font-bold tracking-wider">House Specialty</p>
+                <p class="text-sm font-bold text-[#2B1700] leading-snug">Signature Belgian Cocoa & Sizzling Fudge</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================= 3. ABOUT US ================= -->
+  <section id="about" class="py-24 bg-white border-y border-[#2B1700]/5 relative overflow-hidden">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      
+      <!-- Section Tag -->
+      <div class="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#D97706] mb-3 bg-amber-50/80 px-4 py-1.5 rounded-full border border-amber-200/60">
+        <i data-lucide="heart" class="w-3.5 h-3.5 fill-[#D97706]"></i>
+        <span>Our Story & Craft</span>
+      </div>
+
+      <!-- Section Title -->
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#2B1700] mb-8">
+        Crafted For Cocoa Lovers & Foodies Alike
+      </h2>
+
+      <!-- Exact 2-Line Warm Introductory Paragraphs -->
+      <div class="space-y-5 max-w-3xl mx-auto">
+        <p class="text-lg sm:text-xl text-[#2B1700] font-medium leading-relaxed">
+          "A cozy sanctuary in Vizag crafted for cocoa lovers and foodies alike, serving rich artisanal desserts alongside comforting Italian and Mexican bistro classics."
+        </p>
+        <p class="text-base sm:text-lg text-[#6B5E55] leading-relaxed">
+          "Whether you're stopping by for an intimate date night, work-from-cafe coffee, or a late-night dessert craving, every visit is made special."
+        </p>
+      </div>
+
+      <!-- 3 Key Value Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-7 mt-16 text-left">
+        
+        <div class="p-8 rounded-3xl bg-[#FAF7F2] border border-[#2B1700]/5 shadow-warm-sm hover:shadow-warm-md hover:border-amber-500/20 transition-all duration-300 group">
+          <div class="w-14 h-14 rounded-2xl bg-[#2B1700] text-amber-400 flex items-center justify-center mb-5 shadow-md group-hover:scale-105 transition-transform">
+            <i data-lucide="cookie" class="w-7 h-7"></i>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-[#2B1700] mb-2.5">Artisanal Cocoa</h3>
+          <p class="text-sm text-[#6B5E55] leading-relaxed">
+            Real Belgian chocolate melted to velvety perfection, poured into warm cuddle cups and decadent sizzling brownie platters.
+          </p>
+        </div>
+
+        <div class="p-8 rounded-3xl bg-[#FAF7F2] border border-[#2B1700]/5 shadow-warm-sm hover:shadow-warm-md hover:border-amber-500/20 transition-all duration-300 group">
+          <div class="w-14 h-14 rounded-2xl bg-[#D97706] text-white flex items-center justify-center mb-5 shadow-md group-hover:scale-105 transition-transform">
+            <i data-lucide="utensils-crossed" class="w-7 h-7"></i>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-[#2B1700] mb-2.5">Bistro Kitchen</h3>
+          <p class="text-sm text-[#6B5E55] leading-relaxed">
+            From crispy Italian mozzarella toasts and warm panini to rich oven-baked chicken lasagna, cooked fresh to order every time.
+          </p>
+        </div>
+
+        <div class="p-8 rounded-3xl bg-[#FAF7F2] border border-[#2B1700]/5 shadow-warm-sm hover:shadow-warm-md hover:border-amber-500/20 transition-all duration-300 group">
+          <div class="w-14 h-14 rounded-2xl bg-[#2B1700] text-amber-400 flex items-center justify-center mb-5 shadow-md group-hover:scale-105 transition-transform">
+            <i data-lucide="smile" class="w-7 h-7"></i>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-[#2B1700] mb-2.5">MVP Colony Haven</h3>
+          <p class="text-sm text-[#6B5E55] leading-relaxed">
+            A serene, climate-controlled retreat with acoustic warmth, plush booths, and friendly baristas waiting to brighten your day.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================= 4. MENU SECTION ================= -->
+  <section id="menu" class="py-24 md:py-32 bg-[#FAF7F2] relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <div class="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#D97706] mb-3 bg-amber-50/80 px-4 py-1.5 rounded-full border border-amber-200/60">
+          <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+          <span>Curated Bistro Selection</span>
+        </div>
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#2B1700] mb-4">
+          Explore Our Signature Menu
+        </h2>
+        <p class="text-base text-[#6B5E55]">
+          Handcrafted treats made with premium ingredients. Tap any category to filter, or order directly to your table or doorstep.
+        </p>
+      </div>
+
+      <!-- Filterable / Tabbed Category Buttons (Segmented Capsule) -->
+      <div class="flex justify-center mb-14">
+        <div class="inline-flex p-1.5 rounded-full bg-stone-200/70 backdrop-blur-md border border-stone-300/50 shadow-inner flex-wrap justify-center gap-1.5">
+          <button 
+            type="button"
+            data-category="desserts" 
+            class="menu-tab-btn active px-6 py-3 rounded-full text-sm sm:text-base font-semibold flex items-center gap-2 cursor-pointer"
+          >
+            <i data-lucide="cake-slice" class="w-4 h-4"></i>
+            <span>Desserts & Shakes</span>
+          </button>
+
+          <button 
+            type="button"
+            data-category="savory" 
+            class="menu-tab-btn bg-white/90 text-[#6B5E55] hover:text-[#2B1700] px-6 py-3 rounded-full text-sm sm:text-base font-semibold flex items-center gap-2 cursor-pointer"
+          >
+            <i data-lucide="sandwich" class="w-4 h-4"></i>
+            <span>Savory Bistro & Mains</span>
+          </button>
+
+          <button 
+            type="button"
+            data-category="beverages" 
+            class="menu-tab-btn bg-white/90 text-[#6B5E55] hover:text-[#2B1700] px-6 py-3 rounded-full text-sm sm:text-base font-semibold flex items-center gap-2 cursor-pointer"
+          >
+            <i data-lucide="coffee" class="w-4 h-4"></i>
+            <span>Artisan Coffees & Coolers</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Menu Grid Cards -->
+      <div id="menu-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Category 1: Desserts & Shakes -->
+        <!-- Item 1: Choco Brownie Bomb -->
+        <div class="menu-item-card bg-white rounded-3xl border border-[#2B1700]/8 overflow-hidden shadow-warm-md flex flex-col group" data-category="desserts">
+          <div class="relative h-60 overflow-hidden bg-stone-100">
+            <img 
+              src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=800&q=80" 
+              alt="Choco Brownie Bomb sizzling with hot fudge" 
+              class="w-full h-full object-cover object-center transform group-hover:scale-110 transition-transform duration-700"
+              loading="lazy"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            
+            <!-- Veg Badge -->
+            <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-lg flex items-center gap-1.5 shadow-sm">
+              <span class="badge-veg" title="Vegetarian"><span class="badge-veg-circle"></span></span>
+              <span class="text-[11px] font-bold text-emerald-800 uppercase tracking-wider">Veg</span>
+            </div>
+
+            <!-- Price Capsule -->
+            <div class="absolute bottom-4 right-4 bg-[#2B1700]/95 backdrop-blur-md px-3.5 py-1 rounded-full text-amber-300 font-bold text-sm shadow-md border border-white/10">
+              ₹299
+            </div>
+          </div>
+          <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-xl sm:text-2xl font-bold text-[#2B1700] mb-2 group-hover:text-[#D97706] transition-colors">
+                Choco Brownie Bomb
+              </h3>
+              <p class="text-sm text-[#6B5E55] leading-relaxed">
+                Sizzling warm chocolate brownie drenched in rich melted fudge sauce.
+              </p>
+            </div>
+            <div class="pt-5 mt-5 border-t border-[#2B1700]/8 flex items-center justify-between">
+              <span class="text-[11px] font-bold text-[#D97706] uppercase tracking-wider bg-amber-50 px-2.5 py-1 rounded-md">
+                Signature Bestseller
+              </span>
+              <button 
+                type="button"
+                class="order-wa-btn inline-flex items-center gap-1.5 text-xs font-semibold text-[#B45309] hover:text-white bg-amber-50 hover:bg-[#D97706] px-3.5 py-2 rounded-xl transition-all duration-200"
+                data-item-name="Choco Brownie Bomb"
+                data-item-price="299"
+              >
+                <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                <span>Order on WhatsApp</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 2: Wild Chocolate Freaky Shake -->
+        <div class="menu-item-card bg-white rounded-3xl border border-[#2B1700]/8 overflow-hidden shadow-warm-md flex flex-col group" data-category="desserts">
+          <div class="relative h-60 overflow-hidden bg-stone-100">
+            <img 
+              src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=800&q=80" 
+              alt="Wild Chocolate Freaky Shake with whipped cream and brownie" 
+              class="w-full h-full object-cover object-center transform group-hover:scale-110 transition-transform duration-700"
+              loading="lazy"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            
+            <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-lg flex items-center gap-1.5 shadow-sm">
+              <span class="badge-veg" title="Vegetarian"><span class="badge-veg-circle"></span></span>
+              <span class="text-[11px] font-bold text-emerald-800 uppercase tracking-wider">Veg</span>
+            </div>
+
+            <div class="absolute bottom-4 right-4 bg-[#2B1700]/95 backdrop-blur-md px-3.5 py-1 rounded-full text-amber-300 font-bold text-sm shadow-md border border-white/10">
+              ₹349
+            </div>
+          </div>
+          <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-xl sm:text-2xl font-bold text-[#2B1700] mb-2 group-hover:text-[#D97706] transition-colors">
+                Wild Chocolate Freaky Shake
+              </h3>
+              <p class="text-sm text-[#6B5E55] leading-relaxed">
+                Giant chocolate indulgence crowned with brownie chunks and fresh cream.
+              </p>
+            </div>
+            <div class="pt-5 mt-5 border-t border-[#2B1700]/8 flex items-center justify-between">
+              <span class="text-[11px] font-bold text-[#D97706] uppercase tracking-wider bg-amber-50 px-2.5 py-1 rounded-md">
+                Monster Shake
+              </span>
+              <button 
+                type="button"
+                class="order-wa-btn inline-flex items-center gap-1.5 text-xs font-semibold text-[#B45309] hover:text-white bg-amber-50 hover:bg-[#D97706] px-3.5 py-2 rounded-xl transition-all duration-200"
+                data-item-name="Wild Chocolate Freaky Shake"
+                data-item-price="349"
+              >
+                <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                <span>Order on WhatsApp</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 3: Belgian Hot Chocolate -->
+        <div class="menu-item-card bg-white rounded-3xl border border-[#2B1700]/8 overflow-hidden shadow-warm-md flex flex-col group" data-category="desserts">
+          <div class="relative h-60 overflow-hidden bg-stone-100">
+            <img 
+              src="https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?auto=format&fit=crop&w=800&q=80" 
+              alt="Belgian Hot Chocolate in signature cuddle cup" 
+              class="w-full h-full object-cover object-center transform group-hover:scale-110 transition-transform duration-700"
+              loading="lazy"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            
+            <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-lg flex items-center gap-1.5 shadow-sm">
+              <span class="badge-veg" title="Vegetarian"><span class="badge-veg-circle"></span></span>
+              <span class="text-[11px] font-bold text-emerald-800 uppercase tracking-wider">Veg</span>
+            </div>
+
+            <div class="absolute bottom-4 right-4 bg-[#2B1700]/95 backdrop-blur-md px-3.5 py-1 rounded-full text-amber-300 font-bold text-sm shadow-md border border-white/10">
+              ₹199
+            </div>
+          </div>
+          <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-xl sm:text-2xl font-bold text-[#2B1700] mb-2 group-hover:text-[#D97706] transition-colors">
+                Belgian Hot Chocolate
+              </h3>
+              <p class="text-sm text-[#6B5E55] leading-relaxed">
+                Silky, velvety melted dark cocoa served in our signature cuddle cup.
+              </p>
+            </div>
+            <div class="pt-5 mt-5 border-t border-[#2B1700]/8 flex items-center justify-between">
+              <span class="text-[11px] font-bold text-[#D97706] uppercase tracking-wider bg-amber-50 px-2.5 py-1 rounded-md">
+                Pure Couverture
+              </span>
+              <button 
+                type="button"
+                class="order-wa-btn inline-flex items-center gap-1.5 text-xs font-semibold text-[#B45309] hover:text-white bg-amber-50 hover:bg-[#D97706] px-3.5 py-2 rounded-xl transition-all duration-200"
+                data-item-name="Belgian Hot Chocolate"
+                data-item-price="199"
+              >
+                <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                <span>Order on WhatsApp</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Category 2: Savory Bistro & Mains -->
+        <!-- Item 4: Cheese Italian Toast -->
+        <div class="menu-item-card bg-white rounded-3xl border border-[#2B1700]/8 overflow-hidden shadow-warm-md flex flex-col group" data-category="savory">
+          <div class="relative h-60 overflow-hidden bg-stone-100">
+            <img 
+              src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=800&q=80" 
+              alt="Cheese Italian Toast with melted mozzarella and herbs" 
+              class="w-full h-full object-cover object-center transform group-hover:scale-110 transition-transform duration-700"
+              loading="lazy"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            
+            <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-lg flex items-center gap-1.5 shadow-sm">
+              <span class="badge-veg" title="Vegetarian"><span class="badge-veg-circle"></span></span>
+              <span class="text-[11px] font-bold text-emerald-800 uppercase tracking-wider">Veg</span>
+            </div>
+
+            <div class="absolute bottom-4 right-4 bg-[#2B1700]/95 backdrop-blur-md px-3.5 py-1 rounded-full text-amber-300 font-bold text-sm shadow-md border border-white/10">
+              ₹189
+            </div>
+          </div>
+          <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-xl sm:text-2xl font-bold text-[#2B1700] mb-2 group-hover:text-[#D97706] transition-colors">
+                Cheese Italian Toast
+              </h3>
+              <p class="text-sm text-[#6B5E55] leading-relaxed">
+                Crusty artisanal bread loaded with melted mozzarella and aromatic herbs.
+              </p>
+            </div>
+            <div class="pt-5 mt-5 border-t border-[#2B1700]/8 flex items-center justify-between">
+              <span class="text-[11px] font-bold text-[#D97706] uppercase tracking-wider bg-amber-50 px-2.5 py-1 rounded-md">
+                Artisan Bakery
+              </span>
+              <button 
+                type="button"
+                class="order-wa-btn inline-flex items-center gap-1.5 text-xs font-semibold text-[#B45309] hover:text-white bg-amber-50 hover:bg-[#D97706] px-3.5 py-2 rounded-xl transition-all duration-200"
+                data-item-name="Cheese Italian Toast"
+                data-item-price="189"
+              >
+                <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                <span>Order on WhatsApp</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 5: Open House Chicken Panino -->
+        <div class="menu-item-card bg-white rounded-3xl border border-[#2B1700]/8 overflow-hidden shadow-warm-md flex flex-col group" data-category="savory">
+          <div class="relative h-60 overflow-hidden bg-stone-100">
+            <img 
+              src="https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=800&q=80" 
+              alt="Open House Chicken Panino with tender chicken and cheddar" 
+              class="w-full h-full object-cover object-center transform group-hover:scale-110 transition-transform duration-700"
+              loading="lazy"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            
+            <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-lg flex items-center gap-1.5 shadow-sm">
+              <span class="badge-nonveg" title="Non-Vegetarian"><span class="badge-nonveg-triangle"></span></span>
+              <span class="text-[11px] font-bold text-red-800 uppercase tracking-wider">Non-Veg</span>
+            </div>
+
+            <div class="absolute bottom-4 right-4 bg-[#2B1700]/95 backdrop-blur-md px-3.5 py-1 rounded-full text-amber-300 font-bold text-sm shadow-md border border-white/10">
+              ₹249
+            </div>
+          </div>
+          <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-xl sm:text-2xl font-bold text-[#2B1700] mb-2 group-hover:text-[#D97706] transition-colors">
+                Open House Chicken Panino
+              </h3>
+              <p class="text-sm text-[#6B5E55] leading-relaxed">
+                Grilled ciabatta layered with tender spiced chicken, cheddar, and house sauce.
+              </p>
+            </div>
+            <div class="pt-5 mt-5 border-t border-[#2B1700]/8 flex items-center justify-between">
+              <span class="text-[11px] font-bold text-[#D97706] uppercase tracking-wider bg-amber-50 px-2.5 py-1 rounded-md">
+                Grilled Ciabatta
+              </span>
+              <button 
+                type="button"
+                class="order-wa-btn inline-flex items-center gap-1.5 text-xs font-semibold text-[#B45309] hover:text-white bg-amber-50 hover:bg-[#D97706] px-3.5 py-2 rounded-xl transition-all duration-200"
+                data-item-name="Open House Chicken Panino"
+                data-item-price="249"
+              >
+                <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                <span>Order on WhatsApp</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 6: Creamy Chicken Lasagna -->
+        <div class="menu-item-card bg-white rounded-3xl border border-[#2B1700]/8 overflow-hidden shadow-warm-md flex flex-col group" data-category="savory">
+          <div class="relative h-60 overflow-hidden bg-stone-100">
+            <img 
+              src="https://images.unsplash.com/photo-1574894709920-11b28e7367e3?auto=format&fit=crop&w=800&q=80" 
+              alt="Creamy Chicken Lasagna fresh from the oven" 
+              class="w-full h-full object-cover object-center transform group-hover:scale-110 transition-transform duration-700"
+              loading="lazy"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            
+            <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-lg flex items-center gap-1.5 shadow-sm">
+              <span class="badge-nonveg" title="Non-Vegetarian"><span class="badge-nonveg-triangle"></span></span>
+              <span class="text-[11px] font-bold text-red-800 uppercase tracking-wider">Non-Veg</span>
+            </div>
+
+            <div class="absolute bottom-4 right-4 bg-[#2B1700]/95 backdrop-blur-md px-3.5 py-1 rounded-full text-amber-300 font-bold text-sm shadow-md border border-white/10">
+              ₹299
+            </div>
+          </div>
+          <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-xl sm:text-2xl font-bold text-[#2B1700] mb-2 group-hover:text-[#D97706] transition-colors">
+                Creamy Chicken Lasagna
+              </h3>
+              <p class="text-sm text-[#6B5E55] leading-relaxed">
+                Baked pasta sheets loaded with minced chicken, marinara, and gooey béchamel.
+              </p>
+            </div>
+            <div class="pt-5 mt-5 border-t border-[#2B1700]/8 flex items-center justify-between">
+              <span class="text-[11px] font-bold text-[#D97706] uppercase tracking-wider bg-amber-50 px-2.5 py-1 rounded-md">
+                Oven Baked
+              </span>
+              <button 
+                type="button"
+                class="order-wa-btn inline-flex items-center gap-1.5 text-xs font-semibold text-[#B45309] hover:text-white bg-amber-50 hover:bg-[#D97706] px-3.5 py-2 rounded-xl transition-all duration-200"
+                data-item-name="Creamy Chicken Lasagna"
+                data-item-price="299"
+              >
+                <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                <span>Order on WhatsApp</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Category 3: Artisan Coffees & Coolers -->
+        <!-- Item 7: Caramel Macchiato -->
+        <div class="menu-item-card bg-white rounded-3xl border border-[#2B1700]/8 overflow-hidden shadow-warm-md flex flex-col group" data-category="beverages">
+          <div class="relative h-60 overflow-hidden bg-stone-100">
+            <img 
+              src="https://images.unsplash.com/photo-1485808191679-5f86510681a2?auto=format&fit=crop&w=800&q=80" 
+              alt="Caramel Macchiato with layered espresso and foam" 
+              class="w-full h-full object-cover object-center transform group-hover:scale-110 transition-transform duration-700"
+              loading="lazy"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            
+            <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-lg flex items-center gap-1.5 shadow-sm">
+              <span class="badge-veg" title="Vegetarian"><span class="badge-veg-circle"></span></span>
+              <span class="text-[11px] font-bold text-emerald-800 uppercase tracking-wider">Veg</span>
+            </div>
+
+            <div class="absolute bottom-4 right-4 bg-[#2B1700]/95 backdrop-blur-md px-3.5 py-1 rounded-full text-amber-300 font-bold text-sm shadow-md border border-white/10">
+              ₹179
+            </div>
+          </div>
+          <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-xl sm:text-2xl font-bold text-[#2B1700] mb-2 group-hover:text-[#D97706] transition-colors">
+                Caramel Macchiato
+              </h3>
+              <p class="text-sm text-[#6B5E55] leading-relaxed">
+                Freshly pulled espresso layered with steamed milk and Madagascar vanilla syrup.
+              </p>
+            </div>
+            <div class="pt-5 mt-5 border-t border-[#2B1700]/8 flex items-center justify-between">
+              <span class="text-[11px] font-bold text-[#D97706] uppercase tracking-wider bg-amber-50 px-2.5 py-1 rounded-md">
+                Freshly Pulled
+              </span>
+              <button 
+                type="button"
+                class="order-wa-btn inline-flex items-center gap-1.5 text-xs font-semibold text-[#B45309] hover:text-white bg-amber-50 hover:bg-[#D97706] px-3.5 py-2 rounded-xl transition-all duration-200"
+                data-item-name="Caramel Macchiato"
+                data-item-price="179"
+              >
+                <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                <span>Order on WhatsApp</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 8: Cold Brew On Tap -->
+        <div class="menu-item-card bg-white rounded-3xl border border-[#2B1700]/8 overflow-hidden shadow-warm-md flex flex-col group" data-category="beverages">
+          <div class="relative h-60 overflow-hidden bg-stone-100">
+            <img 
+              src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=800&q=80" 
+              alt="Cold Brew on tap served chilled over ice" 
+              class="w-full h-full object-cover object-center transform group-hover:scale-110 transition-transform duration-700"
+              loading="lazy"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            
+            <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-lg flex items-center gap-1.5 shadow-sm">
+              <span class="badge-veg" title="Vegetarian"><span class="badge-veg-circle"></span></span>
+              <span class="text-[11px] font-bold text-emerald-800 uppercase tracking-wider">Veg</span>
+            </div>
+
+            <div class="absolute bottom-4 right-4 bg-[#2B1700]/95 backdrop-blur-md px-3.5 py-1 rounded-full text-amber-300 font-bold text-sm shadow-md border border-white/10">
+              ₹169
+            </div>
+          </div>
+          <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-xl sm:text-2xl font-bold text-[#2B1700] mb-2 group-hover:text-[#D97706] transition-colors">
+                Cold Brew On Tap
+              </h3>
+              <p class="text-sm text-[#6B5E55] leading-relaxed">
+                Smooth, slow-steeped dark roast served chilled over crystal ice.
+              </p>
+            </div>
+            <div class="pt-5 mt-5 border-t border-[#2B1700]/8 flex items-center justify-between">
+              <span class="text-[11px] font-bold text-[#D97706] uppercase tracking-wider bg-amber-50 px-2.5 py-1 rounded-md">
+                18-Hour Steep
+              </span>
+              <button 
+                type="button"
+                class="order-wa-btn inline-flex items-center gap-1.5 text-xs font-semibold text-[#B45309] hover:text-white bg-amber-50 hover:bg-[#D97706] px-3.5 py-2 rounded-xl transition-all duration-200"
+                data-item-name="Cold Brew On Tap"
+                data-item-price="169"
+              >
+                <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                <span>Order on WhatsApp</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 9: Signature Iced Bubble Tea (User Uploaded Real Image) -->
+        <div class="menu-item-card bg-white rounded-3xl border border-[#2B1700]/8 overflow-hidden shadow-warm-md flex flex-col group" data-category="beverages">
+          <div class="relative h-60 overflow-hidden bg-stone-100">
+            <img 
+              src="images/signature-iced-bubble-tea.jpg" 
+              alt="Signature Iced Bubble Tea with tapioca pearls" 
+              class="w-full h-full object-cover object-center transform group-hover:scale-110 transition-transform duration-700"
+              loading="lazy"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            
+            <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-lg flex items-center gap-1.5 shadow-sm">
+              <span class="badge-veg" title="Vegetarian"><span class="badge-veg-circle"></span></span>
+              <span class="text-[11px] font-bold text-emerald-800 uppercase tracking-wider">Veg</span>
+            </div>
+
+            <div class="absolute bottom-4 right-4 bg-[#2B1700]/95 backdrop-blur-md px-3.5 py-1 rounded-full text-amber-300 font-bold text-sm shadow-md border border-white/10">
+              ₹199
+            </div>
+          </div>
+          <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-xl sm:text-2xl font-bold text-[#2B1700] mb-2 group-hover:text-[#D97706] transition-colors">
+                Signature Iced Bubble Tea
+              </h3>
+              <p class="text-sm text-[#6B5E55] leading-relaxed">
+                Refreshing milk tea infused with chewy tapioca pearls.
+              </p>
+            </div>
+            <div class="pt-5 mt-5 border-t border-[#2B1700]/8 flex items-center justify-between">
+              <span class="text-[11px] font-bold text-[#D97706] uppercase tracking-wider bg-amber-50 px-2.5 py-1 rounded-md">
+                Chewy Boba
+              </span>
+              <button 
+                type="button"
+                class="order-wa-btn inline-flex items-center gap-1.5 text-xs font-semibold text-[#B45309] hover:text-white bg-amber-50 hover:bg-[#D97706] px-3.5 py-2 rounded-xl transition-all duration-200"
+                data-item-name="Signature Iced Bubble Tea"
+                data-item-price="199"
+              >
+                <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                <span>Order on WhatsApp</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Quick Delivery / Order Notice Banner -->
+      <div class="mt-16 p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-[#2B1700] via-[#422402] to-[#2B1700] text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-warm-xl border border-amber-900/30">
+        <div class="space-y-1.5 text-center md:text-left">
+          <p class="font-serif text-2xl sm:text-3xl font-bold text-amber-300">Craving something not listed here?</p>
+          <p class="text-sm sm:text-base text-stone-300">We make custom waffles, fondue platters, and celebration cakes. Inquire instantly on WhatsApp!</p>
+        </div>
+        <a 
+          href="https://wa.me/918374869966?text=Hi%2C%20I'd%20like%20to%20inquire%20about%20the%20full%20menu%20and%20specials%20at%20The%20Chocolate%20Room!"
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="btn-shimmer shrink-0 inline-flex items-center gap-2.5 bg-gradient-to-r from-[#D97706] to-[#B45309] text-white px-7 py-4 rounded-2xl font-bold text-sm shadow-caramel-glow hover:shadow-2xl transition-all duration-200"
+        >
+          <i data-lucide="message-circle" class="w-4 h-4 fill-white text-white"></i>
+          <span>Ask on WhatsApp</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================= 5. GALLERY SECTION ================= -->
+  <section id="gallery" class="py-24 md:py-32 bg-white border-t border-[#2B1700]/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#D97706] mb-3 bg-amber-50/80 px-4 py-1.5 rounded-full border border-amber-200/60">
+          <i data-lucide="camera" class="w-3.5 h-3.5"></i>
+          <span>Moments & Flavors</span>
+        </div>
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#2B1700] mb-4">
+          Life Inside The Chocolate Room
+        </h2>
+        <p class="text-base text-[#6B5E55]">
+          A glimpse into the cozy corners, sizzling desserts, and joyous gatherings at our Vizag cafe. Tap any photo to expand.
+        </p>
+      </div>
+
+      <!-- 6-Image Responsive Grid / Masonry with Modern Bento Proportions -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+        
+        <!-- 1. Steaming hot chocolate mug with latte art -->
+        <div 
+          class="gallery-trigger gallery-img-container group relative rounded-3xl overflow-hidden cursor-pointer shadow-warm-md aspect-[4/3] bg-stone-100"
+          data-full-img="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=1200&q=85"
+          data-caption="Steaming hot chocolate mug with delicate latte art"
+        >
+          <img 
+            src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=800&q=80" 
+            alt="Steaming hot chocolate mug with latte art" 
+            class="w-full h-full object-cover object-center"
+            loading="lazy"
+          >
+          <div class="absolute inset-0 bg-gradient-to-t from-[#2B1700]/90 via-[#2B1700]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+            <div class="text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+              <span class="text-xs uppercase tracking-wider text-amber-300 font-bold block mb-1">Signature Cocoa</span>
+              <p class="font-serif text-lg font-bold">Steaming hot chocolate mug with latte art</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Sizzling brownie bomb dessert -->
+        <div 
+          class="gallery-trigger gallery-img-container group relative rounded-3xl overflow-hidden cursor-pointer shadow-warm-md aspect-[4/3] bg-stone-100"
+          data-full-img="https://images.unsplash.com/photo-1624353365286-3f8d62daad51?auto=format&fit=crop&w=1200&q=85"
+          data-caption="Sizzling brownie bomb dessert drenched in warm fudge"
+        >
+          <img 
+            src="https://images.unsplash.com/photo-1624353365286-3f8d62daad51?auto=format&fit=crop&w=800&q=80" 
+            alt="Sizzling brownie bomb dessert" 
+            class="w-full h-full object-cover object-center"
+            loading="lazy"
+          >
+          <div class="absolute inset-0 bg-gradient-to-t from-[#2B1700]/90 via-[#2B1700]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+            <div class="text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+              <span class="text-xs uppercase tracking-wider text-amber-300 font-bold block mb-1">Decadent Indulgence</span>
+              <p class="font-serif text-lg font-bold">Sizzling brownie bomb dessert</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Cozy ambient booth seating with hanging lamps -->
+        <div 
+          class="gallery-trigger gallery-img-container group relative rounded-3xl overflow-hidden cursor-pointer shadow-warm-md aspect-[4/3] bg-stone-100"
+          data-full-img="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&w=1200&q=85"
+          data-caption="Cozy ambient booth seating with warm hanging lamps"
+        >
+          <img 
+            src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&w=800&q=80" 
+            alt="Cozy ambient booth seating with hanging lamps" 
+            class="w-full h-full object-cover object-center"
+            loading="lazy"
+          >
+          <div class="absolute inset-0 bg-gradient-to-t from-[#2B1700]/90 via-[#2B1700]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+            <div class="text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+              <span class="text-xs uppercase tracking-wider text-amber-300 font-bold block mb-1">Cafe Interior</span>
+              <p class="font-serif text-lg font-bold">Cozy ambient booth seating with hanging lamps</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Loaded gourmet burger and fries -->
+        <div 
+          class="gallery-trigger gallery-img-container group relative rounded-3xl overflow-hidden cursor-pointer shadow-warm-md aspect-[4/3] bg-stone-100"
+          data-full-img="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1200&q=85"
+          data-caption="Loaded gourmet burger and crispy seasoned fries"
+        >
+          <img 
+            src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80" 
+            alt="Loaded gourmet burger and fries" 
+            class="w-full h-full object-cover object-center"
+            loading="lazy"
+          >
+          <div class="absolute inset-0 bg-gradient-to-t from-[#2B1700]/90 via-[#2B1700]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+            <div class="text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+              <span class="text-xs uppercase tracking-wider text-amber-300 font-bold block mb-1">Savory Bistro</span>
+              <p class="font-serif text-lg font-bold">Loaded gourmet burger and fries</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Table spread with pizzas and freak shakes -->
+        <div 
+          class="gallery-trigger gallery-img-container group relative rounded-3xl overflow-hidden cursor-pointer shadow-warm-md aspect-[4/3] bg-stone-100"
+          data-full-img="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1200&q=85"
+          data-caption="Table spread with artisan pizzas and freak shakes"
+        >
+          <img 
+            src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80" 
+            alt="Table spread with pizzas and freak shakes" 
+            class="w-full h-full object-cover object-center"
+            loading="lazy"
+          >
+          <div class="absolute inset-0 bg-gradient-to-t from-[#2B1700]/90 via-[#2B1700]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+            <div class="text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+              <span class="text-xs uppercase tracking-wider text-amber-300 font-bold block mb-1">Group Feasts</span>
+              <p class="font-serif text-lg font-bold">Table spread with pizzas and freak shakes</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Cafe storefront and welcoming entrance -->
+        <div 
+          class="gallery-trigger gallery-img-container group relative rounded-3xl overflow-hidden cursor-pointer shadow-warm-md aspect-[4/3] bg-stone-100"
+          data-full-img="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1200&q=85"
+          data-caption="Cafe storefront and welcoming entrance in MVP Colony"
+        >
+          <img 
+            src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80" 
+            alt="Cafe storefront and welcoming entrance" 
+            class="w-full h-full object-cover object-center"
+            loading="lazy"
+          >
+          <div class="absolute inset-0 bg-gradient-to-t from-[#2B1700]/90 via-[#2B1700]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+            <div class="text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+              <span class="text-xs uppercase tracking-wider text-amber-300 font-bold block mb-1">Welcome In</span>
+              <p class="font-serif text-lg font-bold">Cafe storefront and welcoming entrance</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================= LIGHTBOX MODAL ================= -->
+  <div id="gallery-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/95 backdrop-blur-xl">
+    <button id="modal-close" class="absolute top-6 right-6 text-white hover:text-amber-400 p-2.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors focus:outline-none z-10" aria-label="Close Lightbox">
+      <i data-lucide="x" class="w-7 h-7"></i>
+    </button>
+    <button id="modal-prev" class="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-amber-400 p-3.5 rounded-full bg-white/10 hover:bg-white/25 transition-colors z-10" aria-label="Previous Image">
+      <i data-lucide="chevron-left" class="w-7 h-7"></i>
+    </button>
+    <button id="modal-next" class="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-amber-400 p-3.5 rounded-full bg-white/10 hover:bg-white/25 transition-colors z-10" aria-label="Next Image">
+      <i data-lucide="chevron-right" class="w-7 h-7"></i>
+    </button>
+
+    <div class="max-w-4xl max-h-[85vh] flex flex-col items-center">
+      <img id="modal-img" src="" alt="Enlarged view" class="max-h-[75vh] w-auto rounded-2xl shadow-2xl object-contain border border-white/10">
+      <p id="modal-caption" class="text-stone-300 text-sm sm:text-base font-medium mt-4 text-center px-4"></p>
+    </div>
+  </div>
+
+
+  <!-- ================= 6. LOCATION & HOURS ================= -->
+  <section id="visit" class="py-24 md:py-32 bg-[#FAF7F2] relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#D97706] mb-3 bg-amber-50/80 px-4 py-1.5 rounded-full border border-amber-200/60">
+          <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
+          <span>Find Us in Vizag</span>
+        </div>
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#2B1700] mb-4">
+          Visit Us in MVP Colony
+        </h2>
+        <p class="text-base text-[#6B5E55]">
+          Conveniently situated in Sector 1 with easy parking and welcoming bistro hospitality.
+        </p>
+      </div>
+
+      <!-- Main Layout: Info Cards on Left + Interactive Map on Right -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Left: Address & Timings Cards -->
+        <div class="lg:col-span-5 space-y-6 flex flex-col justify-between">
+          
+          <!-- Address Card -->
+          <div class="bg-white p-8 rounded-3xl border border-[#2B1700]/8 shadow-warm-md hover:shadow-warm-lg transition-shadow">
+            <div class="flex items-start gap-4">
+              <div class="w-13 h-13 rounded-2xl bg-[#2B1700] text-amber-400 flex items-center justify-center p-3.5 shrink-0 shadow-md">
+                <i data-lucide="map-pin" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <h3 class="font-serif text-lg font-bold text-[#2B1700] mb-1">Our Location</h3>
+                <p class="text-base font-semibold text-[#2B1700] leading-snug">
+                  88, Sector 1, MVP Colony,
+                </p>
+                <p class="text-sm text-[#6B5E55] mt-0.5">
+                  Visakhapatnam, Andhra Pradesh 530017
+                </p>
+                <span class="inline-block mt-3 text-xs bg-amber-50 text-[#D97706] font-bold px-3 py-1 rounded-lg border border-amber-200/60">
+                  Sector 1 Landmark Hub
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timings Badge Card -->
+          <div class="bg-white p-8 rounded-3xl border border-[#2B1700]/8 shadow-warm-md hover:shadow-warm-lg transition-shadow">
+            <div class="flex items-start gap-4">
+              <div class="w-13 h-13 rounded-2xl bg-[#D97706] text-white flex items-center justify-center p-3.5 shrink-0 shadow-md">
+                <i data-lucide="clock" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <h3 class="font-serif text-lg font-bold text-[#2B1700] mb-1.5">Cafe Timings</h3>
+                <div class="inline-flex items-center gap-2 bg-emerald-50 text-emerald-800 text-sm font-bold px-3.5 py-1.5 rounded-full border border-emerald-200/80 mb-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-600 animate-pulse"></span>
+                  <span>Open Daily: 11:00 AM – 11:00 PM</span>
+                </div>
+                <p class="text-xs text-[#6B5E55] leading-relaxed">
+                  Dine-in, takeaway, and WhatsApp delivery available throughout open hours.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Direct CTA Buttons -->
+          <div class="space-y-3 pt-2">
+            <a 
+              href="https://maps.google.com/?q=The+Chocolate+Room+Sector+1+MVP+Colony+Visakhapatnam+530017" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="btn-shimmer w-full flex items-center justify-center gap-2.5 bg-[#2B1700] hover:bg-[#422402] text-[#FAF7F2] py-4 px-6 rounded-2xl font-bold shadow-warm-md hover:shadow-warm-xl transition-all"
+            >
+              <i data-lucide="navigation" class="w-5 h-5 text-[#D97706]"></i>
+              <span>Open in Google Maps</span>
+            </a>
+
+            <a 
+              href="tel:+918374869966"
+              class="w-full flex items-center justify-center gap-2.5 bg-white hover:bg-amber-50 text-[#2B1700] border border-[#2B1700]/15 py-3.5 px-6 rounded-2xl font-semibold shadow-warm-sm transition-colors"
+            >
+              <i data-lucide="phone-call" class="w-4 h-4 text-[#D97706]"></i>
+              <span>Call +91 83748 69966</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Right: Embedded Interactive Google Map -->
+        <div class="lg:col-span-7 h-[440px] lg:h-auto rounded-[2.5rem] overflow-hidden border-2 border-white shadow-warm-xl relative bg-stone-200">
+          <iframe 
+            title="The Chocolate Room Visakhapatnam Location Map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3799.9866297053535!2d83.33748!3d17.74087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a395b058a98b58f%3A0x6b8dbbcaef316262!2sSector%201%2C%20MVP%20Colony%2C%20Visakhapatnam%2C%20Andhra%20Pradesh%20530017!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+            width="100%" 
+            height="100%" 
+            style="border:0; min-height: 100%;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            class="w-full h-full filter saturate-[1.1] contrast-[1.05]"
+          ></iframe>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================= 7. FOOTER ================= -->
+  <footer class="bg-[#1E1000] text-[#FAF7F2] border-t border-amber-900/30 pt-20 pb-12 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 pb-14 border-b border-amber-950/80">
+        
+        <!-- Column 1: Brand Info with Official Logo -->
+        <div class="space-y-4 md:col-span-2">
+          <div class="flex items-center space-x-3.5">
+            <img 
+              src="images/the-chocolate-room-logo.png" 
+              alt="The Chocolate Room Logo" 
+              class="w-13 h-13 rounded-full object-cover border-2 border-amber-400/40 shadow-xl"
+            >
+            <div>
+              <span class="font-serif text-2xl font-bold tracking-tight text-[#FAF7F2] block leading-none">
+                The Chocolate Room
+              </span>
+              <span class="text-xs uppercase tracking-widest text-[#D97706] font-semibold block mt-1.5">
+                Cafe & Bistro · Vizag
+              </span>
+            </div>
+          </div>
+          <p class="text-sm text-stone-300 max-w-sm leading-relaxed pt-1">
+            Visakhapatnam's premier cafe and bistro sanctuary for artisanal Belgian cocoa, sizzling desserts, and gourmet Italian savory delights in Sector 1, MVP Colony.
+          </p>
+          <div class="flex items-center space-x-3 pt-3">
+            <!-- WhatsApp -->
+            <a 
+              href="https://wa.me/918374869966?text=Hi%2C%20I'd%20like%20to%20place%20an%20order%20from%20The%20Chocolate%20Room!" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="w-11 h-11 rounded-2xl bg-white/10 hover:bg-[#D97706] text-white flex items-center justify-center transition-all duration-200 shadow-md"
+              aria-label="WhatsApp"
+            >
+              <i data-lucide="message-circle" class="w-5 h-5"></i>
+            </a>
+            <!-- Phone -->
+            <a 
+              href="tel:+918374869966" 
+              class="w-11 h-11 rounded-2xl bg-white/10 hover:bg-[#D97706] text-white flex items-center justify-center transition-all duration-200 shadow-md"
+              aria-label="Phone"
+            >
+              <i data-lucide="phone" class="w-5 h-5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="space-y-3.5">
+          <h4 class="font-serif text-base font-bold text-amber-300 tracking-wider uppercase">Navigation</h4>
+          <ul class="space-y-2.5 text-sm text-stone-300">
+            <li><a href="#about" class="hover:text-[#D97706] transition-colors">About Us</a></li>
+            <li><a href="#menu" class="hover:text-[#D97706] transition-colors">Our Menu</a></li>
+            <li><a href="#gallery" class="hover:text-[#D97706] transition-colors">Photo Gallery</a></li>
+            <li><a href="#visit" class="hover:text-[#D97706] transition-colors">Location & Timings</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Contact & Hours -->
+        <div class="space-y-3.5">
+          <h4 class="font-serif text-base font-bold text-amber-300 tracking-wider uppercase">Direct Contact</h4>
+          <div class="space-y-3 text-sm text-stone-300">
+            <p class="flex items-center gap-2.5">
+              <i data-lucide="phone" class="w-4 h-4 text-[#D97706]"></i>
+              <a href="tel:+918374869966" class="hover:text-amber-300 font-medium">+91 83748 69966</a>
+            </p>
+            <p class="flex items-center gap-2.5">
+              <i data-lucide="message-circle" class="w-4 h-4 text-[#D97706]"></i>
+              <a href="https://wa.me/918374869966" target="_blank" rel="noopener noreferrer" class="hover:text-amber-300 font-medium">WhatsApp Chat</a>
+            </p>
+            <p class="flex items-start gap-2.5 pt-1 text-stone-400 text-xs">
+              <i data-lucide="map-pin" class="w-4 h-4 text-[#D97706] shrink-0 mt-0.5"></i>
+              <span>88, Sector 1, MVP Colony, Visakhapatnam 530017</span>
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Clean Centered Copyright Line -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-center text-center text-xs text-stone-400">
+        <p>© 2026 The Chocolate Room Cafe & Bistro. All rights reserved.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ================= FLOATING QUICK-ORDER FAB ================= -->
+  <a 
+    href="https://wa.me/918374869966?text=Hi%2C%20I'd%20like%20to%20place%20an%20order%20from%20The%20Chocolate%20Room!"
+    target="_blank" 
+    rel="noopener noreferrer"
+    class="floating-order-fab fixed bottom-6 right-6 z-40 bg-gradient-to-r from-[#D97706] to-[#B45309] text-white px-5 py-3.5 rounded-full font-bold text-sm shadow-caramel-glow flex items-center gap-2.5 border-2 border-white/20 group"
+    aria-label="Order on WhatsApp"
+  >
+    <div class="relative">
+      <i data-lucide="message-circle" class="w-5 h-5 fill-white text-white"></i>
+      <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-400 rounded-full animate-ping"></span>
+    </div>
+    <span class="hidden sm:inline">Order on WhatsApp</span>
+  </a>
+
+  <!-- Main JavaScript Logic -->
+  <script src="app.js"></script>
+</body>
+</html>
